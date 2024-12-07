@@ -6,7 +6,7 @@
 /* hero background image */
 .bgimage {
     height:100vh;
-    background: url('images/introimg.png');
+    background: url('images/breathing.jpg');
     background-size:cover;
     position:relative;
 }
@@ -23,7 +23,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: white;
+    color: black;
 }
 
 /* about section image css */
