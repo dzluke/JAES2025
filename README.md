@@ -52,6 +52,55 @@ pip uninstall soundfile
 pip install soundfile
 ```
 
+## File Documentation
+
+### `examples/audio2video/audio2video.py`
+
+This file contains the main function `generate_video`, which creates music-reactive videos by applying network bending techniques to Stable Diffusion. It uses audio features to control the bending functions applied to the generative model, resulting in dynamic visualizations.
+
+#### Key Function:
+- **`generate_video(audio_path, prompt_file_path, layer, bend_function, audio_feature, smoothing_fn, seed, width=512, height=512)`**:
+  - Generates a video based on the input audio and prompts.
+  - Parameters:
+    - `audio_path`: Path to the input audio file.
+    - `prompt_file_path`: Path to the text file containing prompts.
+    - `layer`: Layer of the model to apply bending.
+    - `bend_function`: Function defining the bending operation.
+    - `audio_feature`: Function to extract features from the audio.
+    - `smoothing_fn`: Function to smooth the audio features.
+    - `seed`: Random seed for reproducibility.
+    - `width`, `height`: Dimensions of the output video.
+  - Outputs:
+    - A video file saved in the `video_outputs` directory.
+
+### `examples/audio2video/batch.py`
+
+This file allows batch processing of multiple video generations by calling the `generate_video` function with different configurations.
+
+#### Key Usage:
+- Define a list of inputs, each specifying parameters for a video generation task.
+- Call `audio2video.generate_video` for each input.
+
+#### Example Input:
+```python
+inputs.append(
+    {
+         "audio": audio_path,
+         "prompt": prompt_file_path,
+         "layer": layer,
+         "bend": bending_function,
+         "feature": audio_feature,
+         "smoothing": util.smooth(median_filter_kernel, envelope_follower_alpha, noise_gate_threshold),
+         "seed": seed,
+         "width": width,
+         "height": height
+    }
+)
+```
+
+#### Execution:
+Run the script to process all inputs sequentially and generate videos.
+
 
 
 
