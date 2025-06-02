@@ -6,7 +6,7 @@
 /* hero background image */
 .bgimage {
     height:100vh;
-    background: url('images/breathing.jpg');
+    background: url('images/still6.jpg');
     background-size:cover;
     position:relative;
 }
